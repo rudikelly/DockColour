@@ -20,16 +20,13 @@ void respring() {
 }
 
 // Func to get bool from prefbundle
-inline bool checkEnabled(NSString *key) {
+inline bool getPrefBool(NSString *key) {
   return [[[NSDictionary dictionaryWithContentsOfFile: @"/var/mobile/Library/Preferences/com.rudi.dockcolourprefs.plist"] valueForKey:key] boolValue];
 }
 
 // Func to get the desired color from the pref bundle
 NSString *getColor() {
   return [[NSDictionary dictionaryWithContentsOfFile: @"/var/mobile/Library/Preferences/com.rudi.dockcolourprefs.plist"] objectForKey:@"usercolor"];
-  // NSString *colorHex = [[NSDictionary dictionaryWithContentsOfFile: @"/var/mobile/Library/Preferences/com.rudi.dockcolourprefs.plist"] objectForKey:@"usercolor"];
-  // UIColor *userColor = LCPParseColorString(colorHex, @"#ff0000");
-  // return userColor;
 }
 
 %hook SBDockView
@@ -40,20 +37,18 @@ NSString *getColor() {
 	%orig;
 
   // Checks if the tweak is enabled
-  if(checkEnabled(@"enabled")) {
+  if(getPrefBool(@"enabled")) {
 
     // Hides the blur so colour is visible
   	MSHookIvar<SBWallpaperEffectView *>(self, "_backgroundView").alpha = 0.0f;
 
-    NSString *colorHex = getColor();
-
-    self.backgroundColor = LCPParseColorString(colorHex, @"#ff0000");
+    // NSString *colorHex = getColor();
+    self.backgroundColor = LCPParseColorString(getColor(), @"#ff0000");
 
   }
 }
 
 %end
-
 
 %ctor {
 

@@ -21,6 +21,7 @@
 	CFNotificationCenterPostNotification(CFNotificationCenterGetDarwinNotifyCenter(), CFSTR("com.rudi.nodock/respring"), NULL, NULL, YES);
 }
 
+// Loads colorpicker i think lol
 - (void)viewWillAppear:(BOOL)animated
 {
 	[self reload];

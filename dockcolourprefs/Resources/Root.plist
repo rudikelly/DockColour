@@ -69,7 +69,7 @@
 		<key>defaults</key>
 		<string>com.rudi.dockcolourprefs</string>
 		<key>label</key>
-		<string>Doante (PayPal)</string>
+		<string>Donate (PayPal)</string>
 		<key>action</key>
 		<string>donate</string>
 	</dict>

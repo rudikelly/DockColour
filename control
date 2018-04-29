@@ -1,7 +1,7 @@
 Package: com.rudi.dockcolour
 Name: DockColour
 Depends: mobilesubstrate, preferenceloader, org.thebigboss.libcolorpicker
-Version: 1.0.1
+Version: 1.0.2
 Architecture: iphoneos-arm
 Description: Change the colour of the dock
 Maintainer: Rudi Kelly
