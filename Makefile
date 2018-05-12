@@ -1,5 +1,5 @@
 include $(THEOS)/makefiles/common.mk
-ARCHS = arm64
+ARCHS = armv7 arm64
 
 TWEAK_NAME = DockColour
 DockColour_FILES = Tweak.xm
